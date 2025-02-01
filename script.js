@@ -1,10 +1,15 @@
 const gridContainer = document.getElementById("grid-container");
 
-let row = 16;
-let col = 16;
+const row = 16;
+const col = 16;
+
+const containerSize = 500; // 500px in width and height
+const cellSize = containerSize / row;
+
 
 for (i=0; i < row*col;i++){
     const cell = document.createElement("div");
-    cell.textContent = i + 1;
+    cell.classList.add("cell"); 
+    cell.style.width = `${cellSize}px`;
     gridContainer.appendChild(cell);
 }
