@@ -11,5 +11,13 @@ for (i=0; i < row*col;i++){
     const cell = document.createElement("div");
     cell.classList.add("cell"); 
     cell.style.width = `${cellSize}px`;
+
+    cell.addEventListener("mouseover", () => {
+        cell.style.backgroundColor = "lightblue";
+    })
+
+
+
     gridContainer.appendChild(cell);
 }
+
