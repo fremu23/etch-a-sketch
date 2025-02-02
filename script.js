@@ -18,11 +18,33 @@ for (i=0; i < row*col;i++){
     gridContainer.appendChild(cell);
 }
 
+
+function changeGrid(size){
+    gridContainer.innerHTML = '';
+
+    newCellSize = containerSize / size;
+
+    for (i=0; i < size*size;i++){
+        const cell = document.createElement("div");
+        cell.classList.add("cell"); 
+        cell.style.width = `${newCellSize}px`;
+    
+        cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = "lightblue";
+        })
+    
+        gridContainer.appendChild(cell);
+    }
+}
+
+// Change Grid Size Handling
 const changeGridSize = document.getElementById("grid-change-btn");
 
 changeGridSize.addEventListener("click", () => {
+    let numRows;
+    
     while (true) {
-        let numRows = prompt("How many rows in the grid? (1-100)");
+        numRows = prompt("How many rows in the grid? (1-100)");
 
         if (numRows == null){
             return;
@@ -33,10 +55,9 @@ changeGridSize.addEventListener("click", () => {
         if (numRows > 100 || numRows < 1){
             alert("Please enter a number between 1 and 100.");
         } else {
-            console.log(numRows);
-            break;
-            
+            break;       
         }
     }
 
+    changeGrid(numRows)
 })
