@@ -10,6 +10,9 @@
     box-sizing: border-box;
     border: 0.1px solid black;
     aspect-ratio: 1;
-    
 }
 
+#grid-change-btn{
+    font-size: large;
+    font-weight: bold;
+}
